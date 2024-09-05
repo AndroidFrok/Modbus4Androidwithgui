@@ -4,13 +4,12 @@ buildscript {
 
     ext.kotlin_version = '1.6.0'
 
+    apply from : 'maven.gradle'
     repositories {
-        google()
-        mavenCentral()
-        jcenter()
+        addCommonMaven(repositories)
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.2.2'
+        classpath 'com.android.tools.build:gradle:7.3.0'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
@@ -22,10 +21,7 @@ buildscript {
 
 allprojects {
     repositories {
-        google()
-        mavenCentral()
-        jcenter()
-        maven { url 'https://jitpack.io' }
+        addCommonMaven(repositories)
         //maven { url 'https://maven.mangoautomation.net/repository/ias-release/' }
     }
 }
